@@ -1,0 +1,109 @@
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/roboto.woff2') format('woff2'),
+       url('../fonts/roboto.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --black:          #151317;
+  --daisyBush:      #512689;
+  --whiteLightness: 100%;
+  --white:          hsl(0, 0%, var(--whiteLightness));
+  --greyF8:         hsl(0, 0%, calc(var(--whiteLightness) - 3%));
+  --greyF4:         hsl(0, 0%, calc(var(--whiteLightness) - 4%));
+  --greyF3:         hsl(0, 0%, calc(var(--whiteLightness) - 5%));
+  --greyF2:         hsl(0, 0%, calc(var(--whiteLightness) - 6%));
+  --greyEC:         hsl(0, 0%, calc(var(--whiteLightness) - 7%));
+  --greyEB:         hsl(0, 0%, calc(var(--whiteLightness) - 10%));
+  --greyE3:         hsl(0, 0%, calc(var(--whiteLightness) - 11%));
+  --greyD9:         hsl(0, 0%, calc(var(--whiteLightness) - 15%));
+  --greyCD:         hsl(0, 0%, calc(var(--whiteLightness) - 20%));
+  --greyC4:         hsl(0, 0%, calc(var(--whiteLightness) - 23%));
+  --grey99:         hsl(0, 0%, calc(var(--whiteLightness) - 40%));
+  --grey66:         hsl(0, 0%, calc(var(--whiteLightness) - 60%));
+}
+
+:hover, button, svg circle, div, .settings-block {
+  transition: .3s ease-in-out;
+}
+
+* {
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body, body * {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 400;
+}
+
+ul {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img { 
+  max-width: 100%;
+  
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+input {
+  width: min-content;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  z-index: 800;
+  width: 100vw;
+  height: 100%;
+}
+
+.flex-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:disabled {
+  cursor:not-allowed;
+}
+
+.active {
+  fill: var(--daisyBush);
+} 
+
+.active path {
+  stroke: var(--daisyBush);
+}

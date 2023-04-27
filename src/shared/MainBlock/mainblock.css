@@ -1,0 +1,19 @@
+.mainblock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  min-height: 546px;
+  padding: 5px 5px 10px 5px;
+  
+  overflow: hidden;
+}
+
+
+.visible {
+  display: block;
+}
+
+.further {
+  display: none;
+}
