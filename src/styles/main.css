@@ -10,6 +10,7 @@
 :root {
   --black:          #151317;
   --daisyBush:      #512689;
+  --bossanova:        #512656;
   --whiteLightness: 100%;
   --white:          hsl(0, 0%, var(--whiteLightness));
   --greyF8:         hsl(0, 0%, calc(var(--whiteLightness) - 3%));
@@ -57,6 +58,9 @@ body, body * {
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 400;
 }
+body {
+  min-width: 320px;
+}
 
 ul {
   margin: 0;
@@ -82,18 +86,9 @@ input {
   width: min-content;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  z-index: 800;
-  width: 100vw;
-  height: 100%;
-}
-
-.flex-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-size: 64px;
+  color: #fff;
 }
 
 button:disabled {

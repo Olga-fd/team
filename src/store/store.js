@@ -1,6 +1,7 @@
 const initialState = {
   users: [],
   pressed: false,
+  login: false,
 };
 
 export const persistedState = localStorage.getItem("users")
@@ -9,6 +10,7 @@ export const persistedState = localStorage.getItem("users")
 
 const SET_USERS = "SET_USERS";
 const SET_LIKE = "SET_LIKE";
+const AUTHORIZATE = "AUTHORIZATE";
 
 export const setDataOfUsers = (users) => ({
   type: SET_USERS,
@@ -18,6 +20,11 @@ export const setDataOfUsers = (users) => ({
 export const setPressedLike = (pressed) => ({
   type: SET_LIKE,
   pressed,
+});
+
+export const logIn = (login) => ({
+  type: AUTHORIZATE,
+  login,
 });
 
 function _rootReducer(state = initialState, action) {
@@ -31,6 +38,11 @@ function _rootReducer(state = initialState, action) {
       return {
         ...state,
         pressed: action.pressed,
+      };
+    case AUTHORIZATE:
+      return {
+        ...state,
+        login: action.login,
       };
     // case ADD_PAUSE:
     //   return {

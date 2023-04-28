@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
-// import { useDataOfUsers } from "../../hooks/useDataOfUsers";
 import { useDispatch, useSelector } from "react-redux";
 import "./mainblock.css";
-import { Button } from "../Button/Button";
+import { Button } from "../utils/Button/Button";
 import { Card } from "../Card/Card";
 import { setDataOfUsers } from "../../store/store";
 
 export function MainBlock() {
-  const [users, setUsers] = useState([]);
   let cardUsers;
 
-  const dataOfUsers = useSelector((state) => state.users);
+  const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +22,6 @@ export function MainBlock() {
       })
       .then((resp) => {
         const data = resp.data.data;
-        setUsers(data);
         dispatch(setDataOfUsers(data));
       })
       .catch((err) => console.log(err.message));
@@ -42,11 +39,7 @@ export function MainBlock() {
 
   return (
     <>
-      <div className="mainblock">
-        {cardUsers}
-
-        {/* {isModalOpened && (setClassModal(), (<DarkBack />))} */}
-      </div>
+      <div className="mainblock">{cardUsers}</div>
       <Button
         className={`further ${users.length > 8 ? "visible" : ""}`}
         title="Показать еще"

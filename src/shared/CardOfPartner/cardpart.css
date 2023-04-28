@@ -1,0 +1,65 @@
+.header__person-data {
+  display: flex;
+  align-items: center;
+  min-width: 664px;
+}
+.header__img {
+  width: 187px;
+}
+.header__name {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 32px;
+}
+
+.header__job {
+  margin-top: 16px;
+  color: #fff;
+}
+
+.header__btn_back {
+  position: absolute;
+  top: 32px;  
+  left: 0;
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: var(--greyF8);
+  border: 1px solid var(--greyF8);
+  border-radius: 8px;
+}
+.main a {
+  display: block;
+  padding-left: 33px;
+  font-size: 16px;
+  line-height: 22px;
+  background-position-y: center;
+}
+a[href^="tel"] {
+  margin-bottom: 24px;
+ 
+  background-image: url('../../img/tel.png');
+  background-repeat: no-repeat;
+}
+
+a[href^="mailto"] {
+  background-image: url('../../img/envelope.png');
+  background-repeat: no-repeat;
+}
+
+.main__text {
+  width: 630px;
+  text-align: justify;
+}
+
+.main__info {
+  display: flex;
+  justify-content: space-between;
+  width: 83%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.main__paragraph {
+  margin-bottom: 35px;
+}

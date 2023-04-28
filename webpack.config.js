@@ -30,6 +30,11 @@ module.exports = {
   devtool: "source-map",
   entry: "./src/index.jsx",
   devServer: {
+    watchFiles: ["src/**/*.css"],
+    static: {
+      directory: path.join(__dirname, "src"),
+      watch: true,
+    },
     // static: "./dist",
     hot: true,
   },
