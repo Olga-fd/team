@@ -3,21 +3,25 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { Layout } from "../../Layout/Layout";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { useResize } from "../../../hooks/useResize";
 
 export function Header({ children }) {
   const navigate = useNavigate();
+  const [width] = useResize();
+
   const handleClick = () => {
-    navigate("/auth");
+    navigate("/");
     localStorage.removeItem("token");
   };
 
   return (
     <header className="header">
       <Layout>
-        <Link to="/auth">
-          <Button className="header__btn" title="Выход" />
-        </Link>
+        <Button
+          className={`${width > 500 ? "header__btn" : "exit"}`}
+          title={`${width > 500 ? "Выход" : ""}`}
+          onClick={handleClick}
+        />
         {children}
       </Layout>
     </header>

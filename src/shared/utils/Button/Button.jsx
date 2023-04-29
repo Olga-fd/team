@@ -4,7 +4,7 @@ export function Button(props) {
   return (
     <button
       className={props.className}
-      onClick={(e) => props.onClick(e)}
+      onClick={props.onClick}
       disabled={props.disabled}
     >
       {props.title}

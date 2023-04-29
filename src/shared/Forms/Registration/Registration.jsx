@@ -1,10 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../../utils/Input/Input";
-import "../form.css";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-// import { logIn } from "../../../store/store";
 import { registrate } from "../../../actions/registrate";
 import {
   checkEmail,
@@ -12,11 +9,11 @@ import {
   checkPassword,
   confirmPassword,
 } from "../../../actions/check";
+import "../form.css";
 
 export function Registration() {
   const [eye1, setEye1] = useState(false);
   const [eye2, setEye2] = useState(false);
-  // const [token, setToken] = useState("");
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
@@ -26,7 +23,6 @@ export function Registration() {
   const [errorPassword, setErrorPassword] = useState("");
   const [errorConfirm, setErrorConfirm] = useState("");
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,10 +36,10 @@ export function Registration() {
       errorEmail == "" &&
       errorPassword == ""
     ) {
-      registrate(inputEmail, inputPassword);
-      // setToken(localStorage.getItem("token"));
-      // dispatch(logIn(true));
-      navigate("/team");
+      const token = registrate(inputEmail, inputPassword);
+      if (token) {
+        navigate("/team");
+      }
     }
   };
 
@@ -123,11 +119,10 @@ export function Registration() {
           {errorConfirm}
         </span>
       </fieldset>
-      {/* <Link to={`${token ? "/team" : ""}`}> */}
+
       <button type="submit" className="form__btn">
         Зарегистрироваться
       </button>
-      {/* </Link> */}
     </form>
   );
 }

@@ -8,7 +8,6 @@ export function Input(props) {
       id={props.id}
       className="form__input"
       onInput={(e) => props.onInput(e)}
-      autocomplete
     />
   );
 }

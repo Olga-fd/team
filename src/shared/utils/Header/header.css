@@ -10,7 +10,6 @@
   position: relative;
 }
 
-
 .header__btn {
   position: absolute;
   top: 32px;  
@@ -22,13 +21,20 @@
   border-radius: 8px;
 }
 
-/* @media all and (min-width: 1024px) {
+@media (width < 500px) {
   .header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
+    height: 281px;
+    margin-bottom: 29px;
   }
-} */
+  .exit {
+    position: absolute;
+    top: 22px;  
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-image: url('../../../img/exit.svg');
+    background-repeat: no-repeat;
+  }
+}
 
 

@@ -7,24 +7,23 @@ import { Link } from "react-router-dom";
 
 export function Card(props) {
   const [pressed, setPressed] = useState(false);
-  // const pressed = useSelector((state) => state.pressed);
   const dispatch = useDispatch();
   const handleChange = () => {
     setPressed(!pressed);
-    // dispatch(setPressedLike(!pressed));
+    dispatch(setPressedLike(true));
   };
 
   return (
-    <Link to="/participant">
-      <div className="main__card">
+    <div className="main__card">
+      <Link to={`/participant/${props.id}`}>
         <img className="main__photo" src={props.photo} alt="" />
         <p className="main__name">{props.user}</p>
-        <div className="main__block_like">
-          <button className="main__like" onClick={handleChange}>
-            <LikeIcon className={`${pressed === true ? "active" : ""}`} />
-          </button>
-        </div>
+      </Link>
+      <div className="main__block_like">
+        <button className="main__like" onClick={handleChange}>
+          <LikeIcon className={`${pressed === true ? "active" : ""}`} />
+        </button>
       </div>
-    </Link>
+    </div>
   );
 }

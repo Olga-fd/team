@@ -294,6 +294,6 @@ function _rootReducer(state = initialState, action) {
 
 export function rootReducer(state = initialState, action) {
   const newState = _rootReducer(state, action);
-  localStorage.setItem("pomodoro", JSON.stringify(newState));
+  localStorage.setItem("users", JSON.stringify(newState));
   return newState;
 }

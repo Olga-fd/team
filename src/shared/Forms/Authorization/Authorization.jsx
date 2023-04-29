@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "../../utils/Input/Input";
+import { useNavigate } from "react-router-dom";
 import "../form.css";
 import "./auth.css";
+import { authorizate } from "../../../actions/authorizate";
+import { useToken } from "../../../hooks/useToken";
 
 export function Authorization() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  const handleSubmit = () => {
-    console.log(111);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputEmail !== "" && inputPassword !== "") {
+      const token = authorizate(inputEmail, inputPassword);
+      if (token) {
+        navigate("/team");
+      }
+    }
   };
+
   return (
-    <form className="form form-auth" onSubmit={(e) => handleSubmit(e)}>
+    <form
+      className="form form-auth"
+      onSubmit={(e) => handleSubmit(e)}
+      autocomplete="on"
+    >
       <legend className="form__legend">Авторизация</legend>
       <fieldset>
         <label htmlFor="email__auth" className="form__label">
@@ -33,11 +49,10 @@ export function Authorization() {
           onInput={(e) => setInputPassword(e.target.value)}
         />
       </fieldset>
-      {/* <Link to="/team"> */}
+
       <button type="submit" className="form__btn">
         Войти
       </button>
-      {/* </Link> */}
     </form>
   );
 }

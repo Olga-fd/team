@@ -5,18 +5,28 @@ import { setPressedLike } from "../../store/store";
 import { Header } from "../utils/Header/Header";
 import { Button } from "../utils/Button/Button";
 import { Layout } from "../Layout/Layout";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function CardOfPartner() {
   const data = useSelector((state) => state.users);
+  const navigate = useNavigate();
+  const params = useParams();
+  const id = params.id;
+  const index = data.findIndex((user) => user.id == id);
+  console.log(index);
   return (
     <>
       <Header>
-        <Button className="header__btn_back" title="Назад" />
+        <Button
+          className="header__btn_back"
+          title="Назад"
+          onClick={() => navigate("/team")}
+        />
         <div className="main__info">
           <div className="header__person-data">
-            <img className="header__img" src="../img/artur.jpg" />
+            <img className="header__img" src={data[index].avatar} />
             <div className="header__name">
-              <h1>Артур Королев</h1>
+              <h1>{data[index].first_name + " " + data[index].last_name}</h1>
               <p className="header__job">Партнер</p>
             </div>
           </div>
@@ -57,7 +67,7 @@ export function CardOfPartner() {
 
             <div className="main__address">
               <a href="tel:+79543334455">+7 (954) 333-44-55</a>
-              <a href={`mailto:${data[0].email}`}>{data[0].email}</a>
+              <a href={`mailto:${data[index].email}`}>{data[index].email}</a>
             </div>
           </div>
         </Layout>
