@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import "./mainblock.css";
 import { Button } from "../utils/Button/Button";
+import { DownArrowIcon } from "../utils/Icons/DownArrowIcon";
 import { Card } from "../Card/Card";
 import { setDataOfUsers } from "../../store/store";
 import { useToken } from "../../hooks/useToken";
@@ -43,9 +44,11 @@ export function MainBlock() {
     <>
       <div className="mainblock">{cardUsers}</div>
       <Button
-        className={`${users.length > 5 ? "visible" : ""}`}
+        className={`down ${users.length > 5 ? "visible" : ""}`}
         title="Показать еще"
-      />
+      >
+        <DownArrowIcon />
+      </Button>
     </>
   );
 }

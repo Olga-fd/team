@@ -6,23 +6,27 @@ import { Header } from "../utils/Header/Header";
 import { Button } from "../utils/Button/Button";
 import { Layout } from "../Layout/Layout";
 import { useNavigate, useParams } from "react-router-dom";
+import { useResize } from "../../hooks/useResize";
 
 export function CardOfPartner() {
   const data = useSelector((state) => state.users);
   const navigate = useNavigate();
+  const [width] = useResize();
   const params = useParams();
   const id = params.id;
   const index = data.findIndex((user) => user.id == id);
-  console.log(index);
+
   return (
     <>
-      <Header>
+      <Header className="card-part">
         <Button
-          className="header__btn_back"
-          title="Назад"
+          // className="header__btn_back"
+          // title="Назад"
+          className={`${width > 500 ? "header__btn_back" : "back"}`}
+          title={`${width > 500 ? "Назад" : ""}`}
           onClick={() => navigate("/team")}
         />
-        <div className="main__info">
+        <div className="header__info">
           <div className="header__person-data">
             <img className="header__img" src={data[index].avatar} />
             <div className="header__name">

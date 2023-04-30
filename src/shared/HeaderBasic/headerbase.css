@@ -1,12 +1,9 @@
 .header__block {
-  position: absolute;               
-  top: 50%;                         
-  transform: translate(0, -50%);  
   display: flex;
-  flex-wrap: wrap;
   flex-flow: column;
   justify-content: center;
   align-items: center;  
+  height: 100%;
   margin: 0;
   color: var(--greyF8);
 }
@@ -23,7 +20,7 @@
   color: inherit;
 }
 
-@media  (width < 500px) {
+@media  (width < 756px) {
   .header__title {
    font-size: 2.25rem;
   }

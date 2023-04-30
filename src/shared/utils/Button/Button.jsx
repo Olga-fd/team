@@ -8,6 +8,7 @@ export function Button(props) {
       disabled={props.disabled}
     >
       {props.title}
+      {props.children}
     </button>
   );
 }

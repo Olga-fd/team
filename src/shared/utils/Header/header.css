@@ -8,6 +8,7 @@
 
 .header .layout {
   position: relative;
+  max-width: 1280px;
 }
 
 .header__btn {
@@ -21,11 +22,12 @@
   border-radius: 8px;
 }
 
-@media (width < 500px) {
+@media (width < 756px) {
   .header {
-    height: 281px;
+    min-height: 281px;
     margin-bottom: 29px;
   }
+
   .exit {
     position: absolute;
     top: 22px;  

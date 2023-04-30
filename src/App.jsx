@@ -24,7 +24,8 @@ export function App() {
             path="/"
             element={token ? <Navigate to="/auth" /> : <Registration />}
           /> */}
-          <Route path="/" element={<StartDisplay />} />
+          {/* <Route path="/" element={<StartDisplay />} /> */}
+          <Route path="/" element={<DisplayOfCard />} />
           <Route path="/regist" element={<Registration />} />
           <Route path="/auth" element={<Authorization />} />
           <Route path="/team" element={<DisplayOfCard />} />

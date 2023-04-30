@@ -5,7 +5,7 @@ import { Layout } from "../../Layout/Layout";
 import "./header.css";
 import { useResize } from "../../../hooks/useResize";
 
-export function Header({ children }) {
+export function Header({ className, children }) {
   const navigate = useNavigate();
   const [width] = useResize();
 
@@ -15,7 +15,7 @@ export function Header({ children }) {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${className}`}>
       <Layout>
         <Button
           className={`${width > 500 ? "header__btn" : "exit"}`}
