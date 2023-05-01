@@ -8,6 +8,9 @@ export const registrate = async (email, password) => {
     });
     localStorage.setItem("token", response.data.token);
   } catch (err) {
-    console.log(err);
+    alert("Невозможно зарегистрировать пользователя");
+    throw new Error(
+      `Статус ${err.response.status}: Невозможно зарегистрировать пользователя`
+    );
   }
 };

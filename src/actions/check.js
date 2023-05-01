@@ -21,8 +21,7 @@ export const checkName = (inputName, setErrorName) => {
 };
 
 export const checkPassword = (inputPassword, setErrorPassword) => {
-  const regExp =
-    /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g;
+  const regExp = /[0-9a-zA-Z!@#$%^&*]{6,}/g;
 
   if (!regExp.test(inputPassword) || inputPassword.length == 0) {
     setErrorPassword("Ошибка");

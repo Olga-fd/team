@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "./cardpart.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setPressedLike } from "../../store/store";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { useResize } from "../../hooks/useResize";
 import { Header } from "../utils/Header/Header";
 import { Button } from "../utils/Button/Button";
 import { Layout } from "../Layout/Layout";
-import { useNavigate, useParams } from "react-router-dom";
-import { useResize } from "../../hooks/useResize";
+import { PhoneIcon } from "../utils/Icons/PhoneIcon";
+import { EnvelopeIcon } from "../utils/Icons/EnvelopeIcon";
+import "./cardpart.css";
 
 export function CardOfPartner() {
   const data = useSelector((state) => state.users);
@@ -20,10 +21,8 @@ export function CardOfPartner() {
     <>
       <Header className="card-part">
         <Button
-          // className="header__btn_back"
-          // title="Назад"
-          className={`${width > 500 ? "header__btn_back" : "back"}`}
-          title={`${width > 500 ? "Назад" : ""}`}
+          className={`${width > 756 ? "header__btn_back" : "back"}`}
+          title={`${width > 756 ? "Назад" : ""}`}
           onClick={() => navigate("/team")}
         />
         <div className="header__info">
@@ -70,8 +69,14 @@ export function CardOfPartner() {
             </div>
 
             <div className="main__address">
-              <a href="tel:+79543334455">+7 (954) 333-44-55</a>
-              <a href={`mailto:${data[index].email}`}>{data[index].email}</a>
+              <a href="tel:+79543334455">
+                <PhoneIcon />
+                +7 (954) 333-44-55
+              </a>
+              <a href={`mailto:${data[index].email}`}>
+                <EnvelopeIcon />
+                {data[index].email}
+              </a>
             </div>
           </div>
         </Layout>

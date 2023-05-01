@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../../utils/Input/Input";
-import { useState } from "react";
 import { registrate } from "../../../actions/registrate";
 import {
   checkEmail,
@@ -22,6 +21,7 @@ export function Registration() {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
   const [errorConfirm, setErrorConfirm] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -36,10 +36,12 @@ export function Registration() {
       errorEmail == "" &&
       errorPassword == ""
     ) {
-      const token = registrate(inputEmail, inputPassword);
-      if (token) {
-        navigate("/team");
-      }
+      registrate(inputEmail, inputPassword);
+      setTimeout(() => {
+        if (localStorage.token) {
+          navigate("/team");
+        }
+      }, 1000);
     }
   };
 

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Input } from "../../utils/Input/Input";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Input } from "../../utils/Input/Input";
+import { authorizate } from "../../../actions/authorizate";
 import "../form.css";
 import "./auth.css";
-import { authorizate } from "../../../actions/authorizate";
-import { useToken } from "../../../hooks/useToken";
 
 export function Authorization() {
   const [inputEmail, setInputEmail] = useState("");
@@ -14,19 +13,18 @@ export function Authorization() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputEmail !== "" && inputPassword !== "") {
-      const token = authorizate(inputEmail, inputPassword);
-      if (token) {
-        navigate("/team");
-      }
+      authorizate(inputEmail, inputPassword);
+
+      setTimeout(() => {
+        if (localStorage.token) {
+          navigate("/team");
+        }
+      }, 1000);
     }
   };
 
   return (
-    <form
-      className="form form-auth"
-      onSubmit={(e) => handleSubmit(e)}
-      autocomplete="on"
-    >
+    <form className="form form-auth" onSubmit={(e) => handleSubmit(e)}>
       <legend className="form__legend">Авторизация</legend>
       <fieldset>
         <label htmlFor="email__auth" className="form__label">

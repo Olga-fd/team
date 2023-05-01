@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Roboto';
   src: url('../fonts/roboto.woff2') format('woff2'),
@@ -10,21 +9,10 @@
 :root {
   --black:          #151317;
   --daisyBush:      #512689;
-  --bossanova:        #512656;
+  --bossanova:      #512656;
   --whiteLightness: 100%;
   --white:          hsl(0, 0%, var(--whiteLightness));
   --greyF8:         hsl(0, 0%, calc(var(--whiteLightness) - 3%));
-  --greyF4:         hsl(0, 0%, calc(var(--whiteLightness) - 4%));
-  --greyF3:         hsl(0, 0%, calc(var(--whiteLightness) - 5%));
-  --greyF2:         hsl(0, 0%, calc(var(--whiteLightness) - 6%));
-  --greyEC:         hsl(0, 0%, calc(var(--whiteLightness) - 7%));
-  --greyEB:         hsl(0, 0%, calc(var(--whiteLightness) - 10%));
-  --greyE3:         hsl(0, 0%, calc(var(--whiteLightness) - 11%));
-  --greyD9:         hsl(0, 0%, calc(var(--whiteLightness) - 15%));
-  --greyCD:         hsl(0, 0%, calc(var(--whiteLightness) - 20%));
-  --greyC4:         hsl(0, 0%, calc(var(--whiteLightness) - 23%));
-  --grey99:         hsl(0, 0%, calc(var(--whiteLightness) - 40%));
-  --grey66:         hsl(0, 0%, calc(var(--whiteLightness) - 60%));
 }
 
 :hover, button, svg circle, div, .settings-block {
@@ -101,4 +89,10 @@ button:disabled {
 
 .active path {
   stroke: var(--daisyBush);
+}
+
+@media (width < 756px) {
+  h1 {
+    font-size: 32px;
+  }
 }

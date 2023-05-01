@@ -35,7 +35,6 @@ module.exports = {
       directory: path.join(__dirname, "src"),
       watch: true,
     },
-    // static: "./dist",
     hot: true,
   },
   resolve: {

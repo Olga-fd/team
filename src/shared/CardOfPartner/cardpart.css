@@ -31,24 +31,22 @@
   border: 1px solid var(--greyF8);
   border-radius: 8px;
 }
+
 .main a {
-  display: block;
-  padding-left: 33px;
+  display: flex;
+  align-items: center;
   font-size: 16px;
   line-height: 22px;
-  background-position-y: center;
-}
-a[href^="tel"] {
-  margin-bottom: 24px;
- 
-  background-image: url('../../img/tel.png');
-  background-repeat: no-repeat;
 }
 
-a[href^="mailto"] {
-  background-image: url('../../img/envelope.png');
-  background-repeat: no-repeat;
+.main a svg {
+  margin-right: 8px;
 }
+
+a[href^="tel"] {
+  margin-bottom: 24px;
+}
+
 
 .main__text {
   width: 630px;
@@ -79,10 +77,6 @@ a[href^="mailto"] {
 }
 
 @media (width < 756px) {
-  h1 {
-    font-size: 2rem;
-  }
-
   .header__person-data {
     flex-wrap: wrap-reverse;
     justify-content: center;

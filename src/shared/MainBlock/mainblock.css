@@ -10,7 +10,7 @@
 }
 
 .down {
-  margin: 0 auto;
+  margin: 0 auto 30px;
   padding: 8px 16px;   
   font-size: 16px;
   border: 1px solid var(--black);

@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import "./card.css";
-import { LikeIcon } from "../utils/Icons/LikeIcon";
-import { useDispatch, useSelector } from "react-redux";
-import { setPressedLike } from "../../store/store";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { saveLike } from "../../store/store";
+import { LikeIcon } from "../utils/Icons/LikeIcon";
+import "./card.css";
 
 export function Card(props) {
   const [pressed, setPressed] = useState(false);
   const dispatch = useDispatch();
+
   const handleChange = () => {
     setPressed(!pressed);
-    dispatch(setPressedLike(true));
+    dispatch(saveLike(props.id, !pressed));
   };
 
   return (
@@ -21,7 +22,7 @@ export function Card(props) {
       </Link>
       <div className="main__block_like">
         <button className="main__like" onClick={handleChange}>
-          <LikeIcon className={`${pressed === true ? "active" : ""}`} />
+          <LikeIcon className={`${props.like ? "active" : ""}`} />
         </button>
       </div>
     </div>

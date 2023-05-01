@@ -8,6 +8,9 @@ export const authorizate = async (email, password) => {
     });
     localStorage.setItem("token", response.data.token);
   } catch (err) {
-    console.log(err);
+    alert("Авторизация невозможна. Пользователь не найден");
+    throw new Error(
+      `Статус ${err.response.status}: Авторизация невозможна. Пользователь не найден`
+    );
   }
 };
