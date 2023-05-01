@@ -1,12 +1,18 @@
-Сайт для отобрашения партнеров команды.
-Сайт: https://team-test-2023.netlify.app/
+# Сайт для отображения партнеров команды.
 
-Для регистрации необходимо ввести имя на кириллице.
-Email: eve.holt@reqres.in
-Пароль: pistol
+## Сайт: https://team-test-2023.netlify.app/
 
-Для авторизации:
-Email: eve.holt@reqres.in
-Пароль: cityslicka
+## Для регистрации необходимо ввести имя на кириллице.
 
-Токен сохраняется в localStorage ("token": "QpwL5tke4Pnpja7X4")
+### Email: eve.holt@reqres.in
+
+### Пароль: pistol
+
+## Для авторизации:
+
+### Email: eve.holt@reqres.in
+
+### Пароль: cityslicka
+
+Токен сохраняется в localStorage ("token": "QpwL5tke4Pnpja7X4").
+Для запросов использовался https://reqres.in/ 
